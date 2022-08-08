@@ -77,6 +77,13 @@
                         background-color: darken($m-whatsapp-color, 20%);
                     }
                 }
+
+                &.telegram {
+                    background-color: $m-telegram-color;
+                    &:hover {
+                        background-color: darken($m-telegram-color, 20%);
+                    }
+                }
             }
         }
     }
@@ -96,6 +103,8 @@
 
     .madewithmoodle {
         margin-bottom: .5rem;
+        padding-top: 15px;
+
         p {
             text-transform: uppercase;
             font-weight: 700;
@@ -110,7 +119,7 @@
         }
     }
     .madeby {
-        font-size: 14px;
+        padding-bottom: 10px;
 
         a {
             color: #fff;

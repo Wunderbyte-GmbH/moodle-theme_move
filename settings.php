@@ -215,6 +215,15 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Homepage alert.
+    $name = 'theme_move/alertmsg';
+    $title = get_string('alert', 'theme_move');
+    $description = get_string('alert_desc', 'theme_move');
+    $default = '';
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Bannerheading.
     $name = 'theme_move/bannerheading';
     $title = get_string('bannerheading', 'theme_move');
@@ -692,6 +701,15 @@ if ($ADMIN->fulltree) {
     $name = 'theme_move/whatsapp';
     $title = get_string('whatsapp', 'theme_move');
     $description = get_string('whatsappdesc', 'theme_move');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Telegram url setting.
+    $name = 'theme_move/telegram';
+    $title = get_string('telegram', 'theme_move');
+    $description = get_string('telegramdesc', 'theme_move');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');

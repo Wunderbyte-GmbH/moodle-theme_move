@@ -1,5 +1,4 @@
 // stylelint-disable declaration-no-important
-
 body.coursepresentation-cover {
     #page {
         padding-top: 280px;
@@ -99,7 +98,7 @@ body.coursepresentation-cover {
             border-style: solid;
             border-width: 5px 5px 5px 0;
             background: #fff;
-            margin: 0 0 0 -20px;
+            margin: 0 0 0 -28px;
             padding: .75rem;
             letter-spacing: .1em;
             color: $brand-primary;
@@ -247,6 +246,17 @@ body#page-mod-quiz-attempt.pagelayout-secure {
     }
 }
 
+#page-mod-quiz-review [data-region="blocks-column"] {
+    width: 360px;
+    float: right;
+    top: 0;
+    right: 0;
+    position: relative;
+    height: 100%;
+    overflow-y: inherit;
+    background-color: initial;
+}
+
 @include media-breakpoint-down(md) {
     body.pagelayout-incourse {
         .activity-navigation {
@@ -287,6 +297,17 @@ body#page-mod-quiz-attempt.pagelayout-secure {
 
             }
         }
+    }
+}
+
+body.pagelayout-course {
+    .availabilityinfo.isrestricted .badge a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .section .badge {
+        white-space: initial;
     }
 }
 
