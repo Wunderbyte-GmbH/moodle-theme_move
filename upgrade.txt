@@ -1,4 +1,4 @@
-This files describes API changes in Moove theme,
+This files describes API changes in move theme,
 information provided here is intended especially for everyone.
 
 === 4.1 ===

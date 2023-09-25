@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_moove/drawers
+    @template theme_move/drawers
 
     Boost drawer template.
 
@@ -49,7 +49,7 @@
         "addblockbutton": ""
     }
 }}
-{{> theme_moove/head }}
+{{> theme_move/head }}
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
@@ -57,11 +57,11 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_moove/navbar }}
+    {{> theme_move/navbar }}
 
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container bg-white">
         {{#slidercount}}
-            <div id="mooveslideshow" class="container-fluid">
+            <div id="moveslideshow" class="container-fluid">
                 <div id="carousel-indicators" class="carousel slide carousel-fade" data-ride="carousel">
                     {{^slidersingleslide}}
                     <ol class="carousel-indicators">
@@ -137,7 +137,7 @@
 
         {{#numbersfrontpage}}
             <section id="numbers">
-                <div class="moove-container-fluid">
+                <div class="move-container-fluid">
                     <div class="row customer-area-l1 justify-content-center align-items-center ">
                         <div class="col-xl-5 col-lg-5 col-md-10">
                             <div class="sectionheading">
@@ -151,7 +151,7 @@
                                         <h3>
                                             {{{numbersusers}}}
                                         </h3>
-                                        <p>{{#str}}numbersusers, theme_moove{{/str}}</p>
+                                        <p>{{#str}}numbersusers, theme_move{{/str}}</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-xs-8">
@@ -159,7 +159,7 @@
                                         <h3>
                                             {{{numberscourses}}}
                                         </h3>
-                                        <p>{{#str}}numberscourses, theme_moove{{/str}}</p>
+                                        <p>{{#str}}numberscourses, theme_move{{/str}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -183,8 +183,8 @@
 
         {{#faqenabled}}
             <section id="faq" class="scale-up scale-up-show">
-                <div class="moove-container-fluid">
-                    <h2>{{#str}}faq, theme_moove{{/str}}</h2>
+                <div class="move-container-fluid">
+                    <h2>{{#str}}faq, theme_move{{/str}}</h2>
 
                     <div class="accordion" id="accordionFaq">
                         {{#faq}}
@@ -209,7 +209,7 @@
             </section>
         {{/faqenabled}}
 
-        {{> theme_moove/footer }}
+        {{> theme_move/footer }}
     </div>
     {{{ output.standard_after_main_region_html }}}
 </div>

@@ -15,20 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Adds moove to boost usertours
+ * Adds move to boost usertours
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
 /**
- * Adds moove to boost usertours
+ * Adds move to boost usertours
  *
  * @return bool
  */
-function xmldb_theme_moove_install() {
+function xmldb_theme_move_install() {
     global $DB;
 
     $usertours = $DB->get_records('tool_usertours_tours');
@@ -38,7 +38,7 @@ function xmldb_theme_moove_install() {
             $configdata = json_decode($usertour->configdata);
 
             if (in_array('boost', $configdata->filtervalues->theme)) {
-                $configdata->filtervalues->theme[] = 'moove';
+                $configdata->filtervalues->theme[] = 'move';
             }
 
             $updatedata = new stdClass();

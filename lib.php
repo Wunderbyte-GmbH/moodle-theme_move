@@ -17,7 +17,7 @@
 /**
  * Theme functions.
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright 2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_main_scss_content($theme) {
+function theme_move_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
@@ -40,20 +40,20 @@ function theme_moove_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_moove', 'preset', 0, '/', $filename))) {
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_move', 'preset', 0, '/', $filename))) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
 
-    // Moove scss.
-    $moovevariables = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_variables.scss');
-    $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/default.scss');
-    $security = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_security.scss');
+    // move scss.
+    $movevariables = file_get_contents($CFG->dirroot . '/theme/move/scss/move/_variables.scss');
+    $move = file_get_contents($CFG->dirroot . '/theme/move/scss/default.scss');
+    $security = file_get_contents($CFG->dirroot . '/theme/move/scss/move/_security.scss');
 
     // Combine them together.
-    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove . "\n" . $security;
+    $allscss = $movevariables . "\n" . $scss . "\n" . $move . "\n" . $security;
 
     return $allscss;
 }
@@ -64,14 +64,14 @@ function theme_moove_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_extra_scss($theme) {
+function theme_move_get_extra_scss($theme) {
     $content = '';
 
     // Sets the login background image.
     $loginbgimgurl = $theme->setting_file_url('loginbgimg', 'loginbgimg');
 
     if (empty($loginbgimgurl)) {
-        $loginbgimgurl = new \moodle_url('/theme/moove/pix/loginbg.png');
+        $loginbgimgurl = new \moodle_url('/theme/move/pix/loginbg.png');
         $loginbgimgurl->out();
     }
 
@@ -89,7 +89,7 @@ function theme_moove_get_extra_scss($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_pre_scss($theme) {
+function theme_move_get_pre_scss($theme) {
     $scss = '';
     $configurable = [
         // Config key => [variableName, ...].
@@ -131,10 +131,10 @@ function theme_moove_get_pre_scss($theme) {
  *
  * @return string compiled css
  */
-function theme_moove_get_precompiled_css() {
+function theme_move_get_precompiled_css() {
     global $CFG;
 
-    return file_get_contents($CFG->dirroot . '/theme/moove/style/moodle.css');
+    return file_get_contents($CFG->dirroot . '/theme/move/style/moodle.css');
 }
 
 /**
@@ -149,12 +149,12 @@ function theme_moove_get_precompiled_css() {
  * @param array $options
  * @return mixed
  */
-function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    $theme = theme_config::load('moove');
+function theme_move_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    $theme = theme_config::load('move');
 
     if ($context->contextlevel == CONTEXT_SYSTEM &&
         ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')) {
-        $theme = theme_config::load('moove');
+        $theme = theme_config::load('move');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {
             $options['cacheability'] = 'public';

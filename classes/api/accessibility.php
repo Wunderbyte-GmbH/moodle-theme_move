@@ -17,12 +17,12 @@
 /**
  * Accessibility API endpoints
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\api;
+namespace theme_move\api;
 
 use core_external\external_api;
 use core_external\external_function_parameters;
@@ -32,7 +32,7 @@ use core_external\external_value;
 /**
  * Accessibility API endpoints class
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -245,7 +245,7 @@ class accessibility extends external_api {
                 $fonttype = 'odafont';
             }
 
-            set_user_preference('thememoovesettings_fonttype', $fonttype);
+            set_user_preference('thememovesettings_fonttype', $fonttype);
         }
 
         $enableaccessibilitytoolbar = null;
@@ -253,9 +253,9 @@ class accessibility extends external_api {
             $enableaccessibilitytoolbar = true;
         }
 
-        set_user_preference('thememoovesettings_enableaccessibilitytoolbar', $enableaccessibilitytoolbar);
+        set_user_preference('thememovesettings_enableaccessibilitytoolbar', $enableaccessibilitytoolbar);
 
-        \core\notification::success(get_string('themesettingg:successfullysaved', 'theme_moove'));
+        \core\notification::success(get_string('themesettingg:successfullysaved', 'theme_move'));
 
         return ['success' => true];
     }
@@ -289,8 +289,8 @@ class accessibility extends external_api {
      */
     public static function getthemesettings() {
         return [
-            'fonttype' => get_user_preferences('thememoovesettings_fonttype', 'default'),
-            'enableaccessibilitytoolbar' => get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', false)
+            'fonttype' => get_user_preferences('thememovesettings_fonttype', 'default'),
+            'enableaccessibilitytoolbar' => get_user_preferences('thememovesettings_enableaccessibilitytoolbar', false)
         ];
     }
 

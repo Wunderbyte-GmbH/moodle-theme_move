@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A drawer based layout for the moove theme.
+ * A drawer based layout for the move theme.
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -61,7 +61,7 @@ if (!$hasblocks) {
     $blockdraweropen = false;
 }
 
-$themesettings = new \theme_moove\util\settings();
+$themesettings = new \theme_move\util\settings();
 
 if (!$themesettings->enablecourseindex) {
     $courseindex = '';
@@ -131,4 +131,4 @@ $templatecontext = [
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
-echo $OUTPUT->render_from_template('theme_moove/course', $templatecontext);
+echo $OUTPUT->render_from_template('theme_move/course', $templatecontext);

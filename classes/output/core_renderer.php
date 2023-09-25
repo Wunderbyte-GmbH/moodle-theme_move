@@ -17,23 +17,23 @@
 /**
  * Overriden theme boost core renderer.
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\output;
+namespace theme_move\output;
 
 use theme_config;
 use core\context\course as context_course;
 use moodle_url;
 use html_writer;
-use theme_moove\output\core_course\activity_navigation;
+use theme_move\output\core_course\activity_navigation;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -61,7 +61,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                                     gtag('config', 'GOOGLE-ANALYTICS-CODE');
                                 </script>";
 
-        $theme = theme_config::load('moove');
+        $theme = theme_config::load('move');
 
         if (!empty($theme->settings->googleanalytics)) {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
@@ -92,7 +92,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @since Moodle 2.5.1 2.6
      */
     public function body_attributes($additionalclasses = array()) {
-        $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');
+        $hasaccessibilitybar = get_user_preferences('thememovesettings_enableaccessibilitytoolbar', '');
         if ($hasaccessibilitybar) {
             $additionalclasses[] = 'hasaccessibilitybar';
 
@@ -107,7 +107,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
 
-        $fonttype = get_user_preferences('thememoovesettings_fonttype', '');
+        $fonttype = get_user_preferences('thememovesettings_fonttype', '');
         if ($fonttype) {
             $additionalclasses[] = $fonttype;
         }
@@ -170,7 +170,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function get_theme_logo_url() {
-        $theme = theme_config::load('moove');
+        $theme = theme_config::load('move');
 
         return $theme->setting_file_url('logo', 'logo');
     }
@@ -252,7 +252,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function favicon() {
         global $CFG;
 
-        $theme = theme_config::load('moove');
+        $theme = theme_config::load('move');
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
 
@@ -419,7 +419,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string Final html code.
      */
     public function get_navbar_callbacks_data() {
-        $callbacks = get_plugins_with_function('moove_additional_header', 'lib.php');
+        $callbacks = get_plugins_with_function('move_additional_header', 'lib.php');
 
         if (!$callbacks) {
             return '';
@@ -444,7 +444,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string Final html code.
      */
     public function get_module_footer_callbacks_data() {
-        $callbacks = get_plugins_with_function('moove_module_footer', 'lib.php');
+        $callbacks = get_plugins_with_function('move_module_footer', 'lib.php');
 
         if (!$callbacks) {
             return '';

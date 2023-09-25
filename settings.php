@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Moove block settings file
+ * Theme move block settings file
  *
- * @package    theme_moove
+ * @package    theme_move
  * @copyright  2017 Willian Mano http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,40 +30,40 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
 
     // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingmoove', get_string('configtitle', 'theme_moove'));
+    $settings = new theme_boost_admin_settingspage_tabs('themesettingmove', get_string('configtitle', 'theme_move'));
 
     /*
     * ----------------------
     * General settings tab
     * ----------------------
     */
-    $page = new admin_settingpage('theme_moove_general', get_string('generalsettings', 'theme_moove'));
+    $page = new admin_settingpage('theme_move_general', get_string('generalsettings', 'theme_move'));
 
     // Logo file setting.
-    $name = 'theme_moove/logo';
-    $title = get_string('logo', 'theme_moove');
-    $description = get_string('logodesc', 'theme_moove');
+    $name = 'theme_move/logo';
+    $title = get_string('logo', 'theme_move');
+    $description = get_string('logodesc', 'theme_move');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
     $page->add($setting);
 
     // Favicon setting.
-    $name = 'theme_moove/favicon';
-    $title = get_string('favicon', 'theme_moove');
-    $description = get_string('favicondesc', 'theme_moove');
+    $name = 'theme_move/favicon';
+    $title = get_string('favicon', 'theme_move');
+    $description = get_string('favicondesc', 'theme_move');
     $opts = array('accepted_types' => array('.ico'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon', 0, $opts);
     $page->add($setting);
 
     // Preset.
-    $name = 'theme_moove/preset';
-    $title = get_string('preset', 'theme_moove');
-    $description = get_string('preset_desc', 'theme_moove');
+    $name = 'theme_move/preset';
+    $title = get_string('preset', 'theme_move');
+    $description = get_string('preset_desc', 'theme_move');
     $default = 'default.scss';
 
     $context = \core\context\system::instance();
     $fs = get_file_storage();
-    $files = $fs->get_area_files($context->id, 'theme_moove', 'preset', 0, 'itemid, filepath, filename', false);
+    $files = $fs->get_area_files($context->id, 'theme_move', 'preset', 0, 'itemid, filepath, filename', false);
 
     $choices = [];
     foreach ($files as $file) {
@@ -78,18 +78,18 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Preset files setting.
-    $name = 'theme_moove/presetfiles';
-    $title = get_string('presetfiles', 'theme_moove');
-    $description = get_string('presetfiles_desc', 'theme_moove');
+    $name = 'theme_move/presetfiles';
+    $title = get_string('presetfiles', 'theme_move');
+    $description = get_string('presetfiles_desc', 'theme_move');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
         array('maxfiles' => 10, 'accepted_types' => array('.scss')));
     $page->add($setting);
 
     // Login page background image.
-    $name = 'theme_moove/loginbgimg';
-    $title = get_string('loginbgimg', 'theme_moove');
-    $description = get_string('loginbgimg_desc', 'theme_moove');
+    $name = 'theme_move/loginbgimg';
+    $title = get_string('loginbgimg', 'theme_move');
+    $description = get_string('loginbgimg_desc', 'theme_move');
     $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbgimg', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -97,18 +97,18 @@ if ($ADMIN->fulltree) {
 
     // Variable $brand-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_moove/brandcolor';
-    $title = get_string('brandcolor', 'theme_moove');
-    $description = get_string('brandcolor_desc', 'theme_moove');
+    $name = 'theme_move/brandcolor';
+    $title = get_string('brandcolor', 'theme_move');
+    $description = get_string('brandcolor_desc', 'theme_move');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Variable $navbar-header-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_moove/secondarymenucolor';
-    $title = get_string('secondarymenucolor', 'theme_moove');
-    $description = get_string('secondarymenucolor_desc', 'theme_moove');
+    $name = 'theme_move/secondarymenucolor';
+    $title = get_string('secondarymenucolor', 'theme_move');
+    $description = get_string('secondarymenucolor_desc', 'theme_move');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -131,16 +131,16 @@ if ($ADMIN->fulltree) {
         'Epilogue' => 'Epilogue'
     ];
 
-    $name = 'theme_moove/fontsite';
-    $title = get_string('fontsite', 'theme_moove');
-    $description = get_string('fontsite_desc', 'theme_moove');
+    $name = 'theme_move/fontsite';
+    $title = get_string('fontsite', 'theme_move');
+    $description = get_string('fontsite_desc', 'theme_move');
     $setting = new admin_setting_configselect($name, $title, $description, 'Roboto', $fontsarr);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    $name = 'theme_moove/enablecourseindex';
-    $title = get_string('enablecourseindex', 'theme_moove');
-    $description = get_string('enablecourseindex_desc', 'theme_moove');
+    $name = 'theme_move/enablecourseindex';
+    $title = get_string('enablecourseindex', 'theme_move');
+    $description = get_string('enablecourseindex_desc', 'theme_move');
     $default = 1;
     $choices = array(0 => get_string('no'), 1 => get_string('yes'));
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -154,24 +154,24 @@ if ($ADMIN->fulltree) {
     * Advanced settings tab
     * ----------------------
     */
-    $page = new admin_settingpage('theme_moove_advanced', get_string('advancedsettings', 'theme_moove'));
+    $page = new admin_settingpage('theme_move_advanced', get_string('advancedsettings', 'theme_move'));
 
     // Raw SCSS to include before the content.
-    $setting = new admin_setting_scsscode('theme_moove/scsspre',
-        get_string('rawscsspre', 'theme_moove'), get_string('rawscsspre_desc', 'theme_moove'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode('theme_move/scsspre',
+        get_string('rawscsspre', 'theme_move'), get_string('rawscsspre_desc', 'theme_move'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Raw SCSS to include after the content.
-    $setting = new admin_setting_scsscode('theme_moove/scss', get_string('rawscss', 'theme_moove'),
-        get_string('rawscss_desc', 'theme_moove'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode('theme_move/scss', get_string('rawscss', 'theme_move'),
+        get_string('rawscss_desc', 'theme_move'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Google analytics block.
-    $name = 'theme_moove/googleanalytics';
-    $title = get_string('googleanalytics', 'theme_moove');
-    $description = get_string('googleanalyticsdesc', 'theme_moove');
+    $name = 'theme_move/googleanalytics';
+    $title = get_string('googleanalytics', 'theme_move');
+    $description = get_string('googleanalyticsdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -183,21 +183,21 @@ if ($ADMIN->fulltree) {
     * Frontpage settings tab
     * -----------------------
     */
-    $page = new admin_settingpage('theme_moove_frontpage', get_string('frontpagesettings', 'theme_moove'));
+    $page = new admin_settingpage('theme_move_frontpage', get_string('frontpagesettings', 'theme_move'));
 
     // Disable teachers from cards.
-    $name = 'theme_moove/disableteacherspic';
-    $title = get_string('disableteacherspic', 'theme_moove');
-    $description = get_string('disableteacherspicdesc', 'theme_moove');
+    $name = 'theme_move/disableteacherspic';
+    $title = get_string('disableteacherspic', 'theme_move');
+    $description = get_string('disableteacherspicdesc', 'theme_move');
     $default = 1;
     $choices = array(0 => get_string('no'), 1 => get_string('yes'));
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);
 
     // Slideshow.
-    $name = 'theme_moove/slidercount';
-    $title = get_string('slidercount', 'theme_moove');
-    $description = get_string('slidercountdesc', 'theme_moove');
+    $name = 'theme_move/slidercount';
+    $title = get_string('slidercount', 'theme_move');
+    $description = get_string('slidercountdesc', 'theme_move');
     $default = 0;
     $options = array();
     for ($i = 0; $i < 13; $i++) {
@@ -208,7 +208,7 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // If we don't have an slide yet, default to the preset.
-    $slidercount = get_config('theme_moove', 'slidercount');
+    $slidercount = get_config('theme_move', 'slidercount');
 
     if (!$slidercount) {
         $slidercount = $default;
@@ -217,22 +217,22 @@ if ($ADMIN->fulltree) {
     if ($slidercount) {
         for ($sliderindex = 1; $sliderindex <= $slidercount; $sliderindex++) {
             $fileid = 'sliderimage' . $sliderindex;
-            $name = 'theme_moove/sliderimage' . $sliderindex;
-            $title = get_string('sliderimage', 'theme_moove');
-            $description = get_string('sliderimagedesc', 'theme_moove');
+            $name = 'theme_move/sliderimage' . $sliderindex;
+            $title = get_string('sliderimage', 'theme_move');
+            $description = get_string('sliderimagedesc', 'theme_move');
             $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
             $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
             $page->add($setting);
 
-            $name = 'theme_moove/slidertitle' . $sliderindex;
-            $title = get_string('slidertitle', 'theme_moove');
-            $description = get_string('slidertitledesc', 'theme_moove');
+            $name = 'theme_move/slidertitle' . $sliderindex;
+            $title = get_string('slidertitle', 'theme_move');
+            $description = get_string('slidertitledesc', 'theme_move');
             $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
             $page->add($setting);
 
-            $name = 'theme_moove/slidercap' . $sliderindex;
-            $title = get_string('slidercaption', 'theme_moove');
-            $description = get_string('slidercaptiondesc', 'theme_moove');
+            $name = 'theme_move/slidercap' . $sliderindex;
+            $title = get_string('slidercaption', 'theme_move');
+            $description = get_string('slidercaptiondesc', 'theme_move');
             $default = '';
             $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
             $page->add($setting);
@@ -242,47 +242,47 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_heading('slidercountseparator', '', '<hr>');
     $page->add($setting);
 
-    $name = 'theme_moove/displaymarketingbox';
-    $title = get_string('displaymarketingboxes', 'theme_moove');
-    $description = get_string('displaymarketingboxesdesc', 'theme_moove');
+    $name = 'theme_move/displaymarketingbox';
+    $title = get_string('displaymarketingboxes', 'theme_move');
+    $description = get_string('displaymarketingboxesdesc', 'theme_move');
     $default = 1;
     $choices = array(0 => get_string('no'), 1 => get_string('yes'));
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);
 
-    $displaymarketingbox = get_config('theme_moove', 'displaymarketingbox');
+    $displaymarketingbox = get_config('theme_move', 'displaymarketingbox');
 
     if ($displaymarketingbox) {
         // Marketingheading.
-        $name = 'theme_moove/marketingheading';
-        $title = get_string('marketingsectionheading', 'theme_moove');
+        $name = 'theme_move/marketingheading';
+        $title = get_string('marketingsectionheading', 'theme_move');
         $default = 'Awesome App Features';
         $setting = new admin_setting_configtext($name, $title, '', $default);
         $page->add($setting);
 
         // Marketingcontent.
-        $name = 'theme_moove/marketingcontent';
-        $title = get_string('marketingsectioncontent', 'theme_moove');
-        $default = 'Moove is a Moodle template based on Boost with modern and creative design.';
+        $name = 'theme_move/marketingcontent';
+        $title = get_string('marketingsectioncontent', 'theme_move');
+        $default = 'move is a Moodle template based on Boost with modern and creative design.';
         $setting = new admin_setting_confightmleditor($name, $title, '', $default);
         $page->add($setting);
 
         for ($i = 1; $i < 5; $i++) {
             $filearea = "marketing{$i}icon";
-            $name = "theme_moove/$filearea";
-            $title = get_string('marketingicon', 'theme_moove', $i . '');
+            $name = "theme_move/$filearea";
+            $title = get_string('marketingicon', 'theme_move', $i . '');
             $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
             $setting = new admin_setting_configstoredfile($name, $title, '', $filearea, 0, $opts);
             $page->add($setting);
 
-            $name = "theme_moove/marketing{$i}heading";
-            $title = get_string('marketingheading', 'theme_moove', $i . '');
+            $name = "theme_move/marketing{$i}heading";
+            $title = get_string('marketingheading', 'theme_move', $i . '');
             $default = 'Lorem';
             $setting = new admin_setting_configtext($name, $title, '', $default);
             $page->add($setting);
 
-            $name = "theme_moove/marketing{$i}content";
-            $title = get_string('marketingcontent', 'theme_moove', $i . '');
+            $name = "theme_move/marketing{$i}content";
+            $title = get_string('marketingcontent', 'theme_move', $i . '');
             $default = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
             $setting = new admin_setting_confightmleditor($name, $title, '', $default);
             $page->add($setting);
@@ -293,29 +293,29 @@ if ($ADMIN->fulltree) {
     }
 
     // Enable or disable Numbers sections settings.
-    $name = 'theme_moove/numbersfrontpage';
-    $title = get_string('numbersfrontpage', 'theme_moove');
-    $description = get_string('numbersfrontpagedesc', 'theme_moove');
+    $name = 'theme_move/numbersfrontpage';
+    $title = get_string('numbersfrontpage', 'theme_move');
+    $description = get_string('numbersfrontpagedesc', 'theme_move');
     $default = 1;
     $choices = array(0 => get_string('no'), 1 => get_string('yes'));
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);
 
-    $numbersfrontpage = get_config('theme_moove', 'numbersfrontpage');
+    $numbersfrontpage = get_config('theme_move', 'numbersfrontpage');
 
     if ($numbersfrontpage) {
-        $name = 'theme_moove/numbersfrontpagecontent';
-        $title = get_string('numbersfrontpagecontent', 'theme_moove');
-        $description = get_string('numbersfrontpagecontentdesc', 'theme_moove');
-        $default = get_string('numbersfrontpagecontentdefault', 'theme_moove');
+        $name = 'theme_move/numbersfrontpagecontent';
+        $title = get_string('numbersfrontpagecontent', 'theme_move');
+        $description = get_string('numbersfrontpagecontentdesc', 'theme_move');
+        $default = get_string('numbersfrontpagecontentdefault', 'theme_move');
         $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
         $page->add($setting);
     }
 
     // Enable FAQ.
-    $name = 'theme_moove/faqcount';
-    $title = get_string('faqcount', 'theme_moove');
-    $description = get_string('faqcountdesc', 'theme_moove');
+    $name = 'theme_move/faqcount';
+    $title = get_string('faqcount', 'theme_move');
+    $description = get_string('faqcountdesc', 'theme_move');
     $default = 0;
     $options = array();
     for ($i = 0; $i < 11; $i++) {
@@ -324,17 +324,17 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
     $page->add($setting);
 
-    $faqcount = get_config('theme_moove', 'faqcount');
+    $faqcount = get_config('theme_move', 'faqcount');
 
     if ($faqcount > 0) {
         for ($i = 1; $i <= $faqcount; $i++) {
-            $name = "theme_moove/faqquestion{$i}";
-            $title = get_string('faqquestion', 'theme_moove', $i . '');
+            $name = "theme_move/faqquestion{$i}";
+            $title = get_string('faqquestion', 'theme_move', $i . '');
             $setting = new admin_setting_configtext($name, $title, '', '');
             $page->add($setting);
 
-            $name = "theme_moove/faqanswer{$i}";
-            $title = get_string('faqanswer', 'theme_moove', $i . '');
+            $name = "theme_move/faqanswer{$i}";
+            $title = get_string('faqanswer', 'theme_move', $i . '');
             $setting = new admin_setting_confightmleditor($name, $title, '', '');
             $page->add($setting);
         }
@@ -350,75 +350,75 @@ if ($ADMIN->fulltree) {
     * Footer settings tab
     * --------------------
     */
-    $page = new admin_settingpage('theme_moove_footer', get_string('footersettings', 'theme_moove'));
+    $page = new admin_settingpage('theme_move_footer', get_string('footersettings', 'theme_move'));
 
     // Website.
-    $name = 'theme_moove/website';
-    $title = get_string('website', 'theme_moove');
-    $description = get_string('websitedesc', 'theme_moove');
+    $name = 'theme_move/website';
+    $title = get_string('website', 'theme_move');
+    $description = get_string('websitedesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Mobile.
-    $name = 'theme_moove/mobile';
-    $title = get_string('mobile', 'theme_moove');
-    $description = get_string('mobiledesc', 'theme_moove');
+    $name = 'theme_move/mobile';
+    $title = get_string('mobile', 'theme_move');
+    $description = get_string('mobiledesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Mail.
-    $name = 'theme_moove/mail';
-    $title = get_string('mail', 'theme_moove');
-    $description = get_string('maildesc', 'theme_moove');
+    $name = 'theme_move/mail';
+    $title = get_string('mail', 'theme_move');
+    $description = get_string('maildesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Facebook url setting.
-    $name = 'theme_moove/facebook';
-    $title = get_string('facebook', 'theme_moove');
-    $description = get_string('facebookdesc', 'theme_moove');
+    $name = 'theme_move/facebook';
+    $title = get_string('facebook', 'theme_move');
+    $description = get_string('facebookdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Twitter url setting.
-    $name = 'theme_moove/twitter';
-    $title = get_string('twitter', 'theme_moove');
-    $description = get_string('twitterdesc', 'theme_moove');
+    $name = 'theme_move/twitter';
+    $title = get_string('twitter', 'theme_move');
+    $description = get_string('twitterdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Linkdin url setting.
-    $name = 'theme_moove/linkedin';
-    $title = get_string('linkedin', 'theme_moove');
-    $description = get_string('linkedindesc', 'theme_moove');
+    $name = 'theme_move/linkedin';
+    $title = get_string('linkedin', 'theme_move');
+    $description = get_string('linkedindesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Youtube url setting.
-    $name = 'theme_moove/youtube';
-    $title = get_string('youtube', 'theme_moove');
-    $description = get_string('youtubedesc', 'theme_moove');
+    $name = 'theme_move/youtube';
+    $title = get_string('youtube', 'theme_move');
+    $description = get_string('youtubedesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Instagram url setting.
-    $name = 'theme_moove/instagram';
-    $title = get_string('instagram', 'theme_moove');
-    $description = get_string('instagramdesc', 'theme_moove');
+    $name = 'theme_move/instagram';
+    $title = get_string('instagram', 'theme_move');
+    $description = get_string('instagramdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Whatsapp url setting.
-    $name = 'theme_moove/whatsapp';
-    $title = get_string('whatsapp', 'theme_moove');
-    $description = get_string('whatsappdesc', 'theme_moove');
+    $name = 'theme_move/whatsapp';
+    $title = get_string('whatsapp', 'theme_move');
+    $description = get_string('whatsappdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
     // Telegram url setting.
-    $name = 'theme_moove/telegram';
-    $title = get_string('telegram', 'theme_moove');
-    $description = get_string('telegramdesc', 'theme_moove');
+    $name = 'theme_move/telegram';
+    $title = get_string('telegram', 'theme_move');
+    $description = get_string('telegramdesc', 'theme_move');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
