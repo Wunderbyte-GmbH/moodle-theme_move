@@ -25,7 +25,7 @@
 namespace theme_move\output;
 
 use theme_config;
-use core\context\course as context_course;
+use context_course;
 use moodle_url;
 use html_writer;
 use theme_move\output\core_course\activity_navigation;
@@ -67,15 +67,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
         }
 
-        $sitefont = isset($theme->settings->fontsite) ? $theme->settings->fontsite : 'Moodle';
+        $sitefont = isset($theme->settings->fontsite) ? $theme->settings->fontsite : 'Roboto';
 
-        if ($sitefont != 'Moodle') {
-            $output .= '<link rel="preconnect" href="https://fonts.googleapis.com">
+        $output .= '<link rel="preconnect" href="https://fonts.googleapis.com">
                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                        <link href="https://fonts.googleapis.com/css2?family='
-                . $sitefont .
-                ':ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">';
-        }
+                        . $sitefont .
+                       ':ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">';
 
         return $output;
     }

@@ -142,23 +142,15 @@ class settings {
             $sliderimage = "sliderimage{$i}";
             $slidertitle = "slidertitle{$i}";
             $slidercap = "slidercap{$i}";
-            $slidercapcontent = $this->$slidercap ?: null;
 
-            $slidetitle = format_string($this->$slidertitle) ?: null;
-            $slidecontent = format_text($slidercapcontent, FORMAT_MOODLE, ['noclean' => false]) ?: null;
             $image = $this->$sliderimage;
-
-            $hascaption = isset($slidetitle) || isset($slidecontent);
 
             $templatecontext['slides'][$j]['key'] = $j;
             $templatecontext['slides'][$j]['active'] = $i === 1;
             $templatecontext['slides'][$j]['image'] = $image ?: $defaultimage->out();
-            $templatecontext['slides'][$j]['title'] = $slidetitle;
-            $templatecontext['slides'][$j]['caption'] = $slidecontent;
-            $templatecontext['slides'][$j]['hascaption'] = $hascaption;
+            $templatecontext['slides'][$j]['title'] = format_string($this->$slidertitle);
+            $templatecontext['slides'][$j]['caption'] = format_text($this->$slidercap);
         }
-
-        $templatecontext['slidersingleslide'] = $this->slidercount == 1;
 
         return $templatecontext;
     }

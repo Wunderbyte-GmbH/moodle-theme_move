@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme move block settings file
+ * Theme Move block settings file
  *
  * @package    theme_move
  * @copyright  2017 Willian Mano http://conecti.me
@@ -61,7 +61,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('preset_desc', 'theme_move');
     $default = 'default.scss';
 
-    $context = \core\context\system::instance();
+    $context = context_system::instance();
     $fs = get_file_storage();
     $files = $fs->get_area_files($context->id, 'theme_move', 'preset', 0, 'itemid, filepath, filename', false);
 
@@ -114,7 +114,6 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     $fontsarr = [
-        'Moodle' => 'Moodle Font',
         'Roboto' => 'Roboto',
         'Poppins' => 'Poppins',
         'Montserrat' => 'Montserrat',
@@ -263,7 +262,7 @@ if ($ADMIN->fulltree) {
         // Marketingcontent.
         $name = 'theme_move/marketingcontent';
         $title = get_string('marketingsectioncontent', 'theme_move');
-        $default = 'move is a Moodle template based on Boost with modern and creative design.';
+        $default = 'Move is a Moodle template based on Boost with modern and creative design.';
         $setting = new admin_setting_confightmleditor($name, $title, '', $default);
         $page->add($setting);
 

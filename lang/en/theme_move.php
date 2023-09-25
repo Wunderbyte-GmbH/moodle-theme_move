@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'move';
-$string['configtitle'] = 'move';
-$string['choosereadme'] = 'move is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
+$string['pluginname'] = 'Move';
+$string['configtitle'] = 'Move';
+$string['choosereadme'] = 'Move is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
 
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';

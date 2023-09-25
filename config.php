@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * move config.
+ * Move config.
  *
  * @package    theme_move
  * @copyright  2022 Willian Mano {@link https://conecti.me}

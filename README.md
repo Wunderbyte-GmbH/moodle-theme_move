@@ -1,9 +1,9 @@
-Moodle "move" theme repository
+Moodle "Move" theme repository
 ===============================
 
-move is Moodle's theme that makes online environments more clean and intuitive for learners and educators. Its intuitive layout is optimised for online learning, focusing on the things that matter - your learning activities and content.
+Move is Moodle's theme that makes online environments more clean and intuitive for learners and educators. Its intuitive layout is optimised for online learning, focusing on the things that matter - your learning activities and content.
 
-move is built on Boostrap4 and Mustache templates.
+Move is built on Boostrap4 and Mustache templates.
 
 Documentation
 =============

@@ -35,7 +35,7 @@ function theme_move_get_main_scss_content($theme) {
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
     $fs = get_file_storage();
 
-    $context = \core\context\system::instance();
+    $context = context_system::instance();
     if ($filename == 'default.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
@@ -47,7 +47,7 @@ function theme_move_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
 
-    // move scss.
+    // Move scss.
     $movevariables = file_get_contents($CFG->dirroot . '/theme/move/scss/move/_variables.scss');
     $move = file_get_contents($CFG->dirroot . '/theme/move/scss/default.scss');
     $security = file_get_contents($CFG->dirroot . '/theme/move/scss/move/_security.scss');
@@ -69,15 +69,11 @@ function theme_move_get_extra_scss($theme) {
 
     // Sets the login background image.
     $loginbgimgurl = $theme->setting_file_url('loginbgimg', 'loginbgimg');
-
-    if (empty($loginbgimgurl)) {
-        $loginbgimgurl = new \moodle_url('/theme/move/pix/loginbg.png');
-        $loginbgimgurl->out();
+    if (!empty($loginbgimgurl)) {
+        $content .= 'body.pagelayout-login #page { ';
+        $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
+        $content .= ' }';
     }
-
-    $content .= 'body.pagelayout-login #page { ';
-    $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
-    $content .= ' }';
 
     // Always return the background image with the scss when we have it.
     return !empty($theme->settings->scss) ? $theme->settings->scss . ' ' . $content : $content;
@@ -104,11 +100,6 @@ function theme_move_get_pre_scss($theme) {
         if (empty($value)) {
             continue;
         }
-
-        if ($configkey == 'fontsite' && $value == 'Moodle') {
-            continue;
-        }
-
         array_map(function($target) use (&$scss, $value) {
             if ($target == 'fontsite') {
                 $scss .= '$' . $target . ': "' . $value . '", sans-serif !default' .";\n";

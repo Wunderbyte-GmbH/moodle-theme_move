@@ -1,7 +1,7 @@
 {
   "name": "theme-move-tasks",
   "version": "3.8.5",
-  "description": "Grunt tasks for Moodle move theme.",
+  "description": "Grunt tasks for Moodle MOVE theme.",
   "main": "Gruntfile.js",
   "author": {
     "name": "Willian Mano",
